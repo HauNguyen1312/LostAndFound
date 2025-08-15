@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VULost&Found Platform</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>VULost&Found Platform</h1>
+    <p>Report or search for lost and found items on Brisbane VU Campus</p>
+  </header>
+
+  <main>
+    <section id="report-form">
+      <h2>Report Lost or Found Item</h2>
+      <form id="itemForm">
+        <label for="status">Item Status:</label>
+        <select id="status" name="status" required>
+          <option value="Lost">Lost</option>
+          <option value="Found">Found</option>
+        </select>
+
+        <label for="item">Item Description:</label>
+        <input type="text" id="item" name="item"
+               placeholder="e.g. Black backpack with laptop" required />
+
+        <label for="location">Approximate Location:</label>
+        <input type="text" id="location" name="location"
+               placeholder="e.g. Library entrance" required />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="contact">Your Contact Email:</label>
+        <input type="email" id="contact" name="contact"
+               placeholder="e.g. student@vu.edu.au" required />
+
+        <button type="submit">Submit</button>
+      </form>
+      <p id="confirmation" style="display:none; color:green;">
+        Item submitted successfully!
+      </p>
+    </section>
+
+    <section id="item-list">
+      <h2>Recently Reported Items</h2>
+      <div id="itemsContainer">Loading items...</div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 VULost&Found | Victoria University</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
