@@ -8,6 +8,7 @@ class Items(models.Model):
 	location = models.TextField(null=True,blank=True)
 	email = models.EmailField(null=False,blank=True)
 	date = models.DateField(null=True,blank=True)
+	created_at = models.DateTimeField(auto_now_add = True)
 
 	def __str__(self):
 		return f"{self.status}"
