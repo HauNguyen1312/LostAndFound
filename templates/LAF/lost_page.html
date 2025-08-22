@@ -1,0 +1,21 @@
+{% extends 'LAF/Base.html' %}
+{% load static %}
+{% block title %}Lost Items Registry{% endblock %}
+{% block body %}
+    <table>
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        {% for item in list_lost%}
+        <tbody>
+            <tr>
+                <td>{{ item.description }}</td>
+                <td>{{ item.email }}</td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+{% endblock %}

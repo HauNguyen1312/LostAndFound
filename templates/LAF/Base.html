@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost and Found Item Form</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="https://myvu.edu.au/1fd68dd31834bf06d93a5b7508aa3bab.svg" alt="Logo">
+        </div>
+        <div>
+            <h1>{% block title %}{% endblock %}</h1>
+        </div>
+        <nav class="menu">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'lost' %}">Lost Items</a></li>
+                <li><a href="{% url 'found' %}">Found Items</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

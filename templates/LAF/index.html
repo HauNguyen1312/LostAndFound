@@ -1,59 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VULost&Found Platform</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <header>
-    <h1>VULost&Found Platform</h1>
-    <p>Report or search for lost and found items on Brisbane VU Campus</p>
-  </header>
+{% extends 'LAF/Base.html' %}
+{% load static %}
+{% block title %}Lost & Found{% endblock %}
+{% block body %}
+<div class="container">
+    <form action="{% url 'save_data' %}" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+        <h2>Report a Lost or Found Item</h2>
 
-  <main>
-    <section id="report-form">
-      <h2>Report Lost or Found Item</h2>
-      <form id="itemForm">
-        <label for="status">Item Status:</label>
-        <select id="status" name="status" required>
-          <option value="Lost">Lost</option>
-          <option value="Found">Found</option>
-        </select>
+        <div class="form-group radio-group">
+            <label>Item Status:</label>
+            <input type="radio" id="lost" name="status" value="lost" required>
+            <label for="lost">Lost</label>
+            <input type="radio" id="found" name="status" value="found" required>
+            <label for="found">Found</label>
+        </div>
+        <div class="form-group">
+            <label for="description">Item Description:</label>
+            <input type="text" id="description" name="description" required placeholder="e.g., Iphone, SamSung, ">
+        </div>
 
-        <label for="item">Item Description:</label>
-        <input type="text" id="item" name="item"
-               placeholder="e.g. Black backpack with laptop" required />
+        <div class="form-group">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required placeholder="e.g., Cafeteria, Building A, Room 101">
+        </div>
 
-        <label for="location">Approximate Location:</label>
-        <input type="text" id="location" name="location"
-               placeholder="e.g. Library entrance" required />
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+        </div>
 
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required />
+        <div class="form-group">
+            <label for="email">Your Contact Email:</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+        </div>
 
-        <label for="contact">Your Contact Email:</label>
-        <input type="email" id="contact" name="contact"
-               placeholder="e.g. student@vu.edu.au" required />
+        <div class="form-group">
+            <label for="category">Category (optional):</label>
+            <select id="category" name="category">
+                <option value="">-- Select a Category --</option>
+                <option value="electronics">Electronics</option>
+                <option value="clothings">Clothings</option>
+                <option value="id_docs">ID/Docs</option>
+                <option value="accessories">Accessories</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
 
-        <button type="submit">Submit</button>
-      </form>
-      <p id="confirmation" style="display:none; color:green;">
-        Item submitted successfully!
-      </p>
-    </section>
+        <div class="form-group">
+            <label for="keywords">Keywords:</label>
+            <input type="text" id="keywords" name="key_word" placeholder="e.g., wallet, leather, black">
+            <small>Enter keywords to help others find or identify the item.</small>
+        </div>
 
-    <section id="item-list">
-      <h2>Recently Reported Items</h2>
-      <div id="itemsContainer">Loading items...</div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 VULost&Found | Victoria University</p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
