@@ -155,3 +155,32 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #f1f1f1;
 }
+
+.search-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+#search-query, #search-button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#search-query {
+    flex-grow: 1;
+}
+
+#search-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-button:hover {
+    background-color: #0056b3;
+}

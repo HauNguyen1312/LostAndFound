@@ -1,7 +1,14 @@
 {% extends 'LAF/Base.html' %}
 {% load static %}
 {% block title %}Found Items{% endblock %}
-{% block body %}
+{% block body %} 
+    <div class="search-form">
+        <form>
+            <input type="text" id="search-input" placeholder="Enter keywords..." />
+            <button type="submit" id="search-button">Search</button>
+        </form>
+    </div>
+    <div id="results"></div>
     <table>
         <thead>
             <tr>

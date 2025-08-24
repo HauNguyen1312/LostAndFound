@@ -2,6 +2,13 @@
 {% load static %}
 {% block title %}Lost Items Registry{% endblock %}
 {% block body %}
+    <div class="search-form">
+        <form>
+            <input type="text" id="search-input" placeholder="Enter keywords..." />
+            <button type="submit" id="search-button">Search</button>
+        </form>
+    </div>
+    <div id="results"></div>
     <table>
         <thead>
             <tr>
@@ -18,4 +25,6 @@
         </tbody>
         {% endfor %}
     </table>
+    <script src="{% static 'js/script.js'%}"></script>
+
 {% endblock %}

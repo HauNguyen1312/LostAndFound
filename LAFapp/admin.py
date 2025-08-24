@@ -5,4 +5,5 @@ from .models import Items
 class ItemsAdmin(admin.ModelAdmin):
   list_display = ("status", "description", "location", "email", "category", "key_word", "date")
   search_fields = ("status", "description", "key_word")
+  
 admin.site.register(Items, ItemsAdmin)

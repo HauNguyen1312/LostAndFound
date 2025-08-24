@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.postgres.search import SearchVectorField
 
 # Create your models here.
 class Items(models.Model):
@@ -11,6 +12,7 @@ class Items(models.Model):
 	category = models.CharField(null=True,blank=True)
 	key_word = models.CharField(null=True,blank=True)
 	created_at = models.DateTimeField(auto_now_add = True)
+	search_vector = SearchVectorField(null=True)
 
 	def __str__(self):
 		return f"{self.description}"
