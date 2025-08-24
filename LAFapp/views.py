@@ -45,10 +45,10 @@ class LostItemsAPIView(APIView):
 
 
 			queryset = queryset.annotate(
-				rank = SearchRank(search_vector, search_query)
-				).filter(search_vector=search_query).order_by('-rank')
+				search=search_vector,
+				rank = SearchRank('search', search_query)
+				).filter(search=search_query).order_by('-rank')
 
-		print(queryset)
 		serializer = ItemsSerializers(queryset, many=True)
 		return Response(serializer.data)
 
