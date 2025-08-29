@@ -2,29 +2,32 @@
 {% load static %}
 {% block title %}Lost Items Registry{% endblock %}
 {% block body %}
-    <div class="search-form">
-        <form>
+    <div class="search-gird">
+        <form id="search-form">
+            <!-- <input type="text" id="search-input" placeholder="Enter keywords..." />
+            <button type="submit" id="search-button">Search</button> -->
+
             <input type="text" id="search-input" placeholder="Enter keywords..." />
-            <button type="submit" id="search-button">Search</button>
+            <button type="submit" value="lost" id="search-button"><i class="fa fa-search"></i></button>
         </form>
     </div>
-    <div id="results"></div>
-    <table>
-        <thead>
-            <tr>
-                <th>Description</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        {% for item in list_lost%}
-        <tbody>
-            <tr>
-                <td>{{ item.description }}</td>
-                <td>{{ item.email }}</td>
-            </tr>
-        </tbody>
-        {% endfor %}
-    </table>
-    <script src="{% static 'js/script.js'%}"></script>
-
+    <div id="results-container" style="display:none;"></div>
+    <div id="list-of-items">
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            {% for item in list_lost%}
+            <tbody>
+                <tr>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.email }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

@@ -2,7 +2,13 @@
 {% load static %}
 {% block title %}Lost & Found{% endblock %}
 {% block body %}
-<div class="container">
+{% if message %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+  <strong>HEY!</strong> {{ message }}
+</div>
+{% endif %}
+<div class="container">    
     <form action="{% url 'save_data' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
         <h2>Report a Lost or Found Item</h2>
@@ -21,7 +27,7 @@
 
         <div class="form-group">
             <label for="location">Location:</label>
-            <input type="text" id="location" name="location" required placeholder="e.g., Cafeteria, Building A, Room 101">
+            <input type="text" id="location" name="location" required placeholder="e.g., Library, Level 1, Room 1.1">
         </div>
 
         <div class="form-group">
@@ -31,7 +37,7 @@
 
         <div class="form-group">
             <label for="email">Your Contact Email:</label>
-            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+            <input type="email" id="email" name="email" required placeholder="your.email@vu.live.edu.au">
         </div>
 
         <div class="form-group">
@@ -48,7 +54,7 @@
 
         <div class="form-group">
             <label for="keywords">Keywords:</label>
-            <input type="text" id="keywords" name="key_word" placeholder="e.g., wallet, leather, black">
+            <input type="text" id="keywords" name="key_word" placeholder="e.g., wallet, phone, laptop">
             <small>Enter keywords to help others find or identify the item.</small>
         </div>
 
@@ -56,5 +62,6 @@
             <button type="submit">Submit</button>
         </div>
     </form>
+    
 </div>
 {% endblock %}

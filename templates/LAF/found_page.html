@@ -2,13 +2,13 @@
 {% load static %}
 {% block title %}Found Items{% endblock %}
 {% block body %} 
-    <div class="search-form">
-        <form>
+    <div class="search-gird">
+        <form id="search-form">
             <input type="text" id="search-input" placeholder="Enter keywords..." />
-            <button type="submit" id="search-button">Search</button>
+            <button type="submit" value="found" id="search-button"><i class="fa fa-search"></i></button>
         </form>
     </div>
-    <div id="results"></div>
+    <div id="results-container" style="display:none;"></div>
     <table>
         <thead>
             <tr>
@@ -16,13 +16,15 @@
                 <th>Email</th>
             </tr>
         </thead>
-        {% for item in list_found%}
-        <tbody>
-            <tr>
-                <td>{{ item.description }}</td>
-                <td>{{ item.email }}</td>
-            </tr>
-        </tbody>
-        {% endfor %}
+        <div id="list-of-items">
+            {% for item in list_found %}
+            <tbody>
+                <tr>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.email }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </div>
     </table>
 {% endblock %}

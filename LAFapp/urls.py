@@ -9,4 +9,5 @@ urlpatterns = [
 	
     path('lost_items/', views.LostItemsAPIView.as_view(), name='lost_items_search'),
     path('found_items/', views.FoundItemsAPIView.as_view(), name='found_items_search'),
+    # path('show_results/',views.ShowResultsAPIView.as_view(), name='show_results'),
 ]

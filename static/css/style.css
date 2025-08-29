@@ -59,7 +59,7 @@ body {
     min-height: calc(100vh - 60px); /* Adjust based on header height */
 }
 
-form {
+.container form {
     background-color: #fff;
     padding: 20px 40px;
     border-radius: 8px;
@@ -157,9 +157,9 @@ tr:hover {
 }
 
 .search-form {
-    display: flex;
     gap: 10px;
     margin-bottom: 2rem;
+    margin:500px;
 }
 
 #search-query, #search-button {
@@ -179,8 +179,40 @@ tr:hover {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 10%;
 }
 
 #search-button:hover {
-    background-color: #0056b3;
+  background: #0b7dda;
+}
+
+.search-gird {
+    text-align: center;
+}
+
+#search-input {
+    width: 50%;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #007bff;
+  color: white;
+  margin: 1% 30% 0% 30%;
+  border-radius: 10px;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
 }
