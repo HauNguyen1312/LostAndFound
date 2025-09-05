@@ -2,16 +2,16 @@
 {% load static %}
 {% block title %}Lost & Found{% endblock %}
 {% block body %}
-{% if message %}
+{% if alert %}
 <div class="alert">
   <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-  <strong>HEY!</strong> {{ message }}
+  <strong>HEY!</strong> {{ alert }}
 </div>
 {% endif %}
 <div class="container">    
     <form action="{% url 'save_data' %}" method="post" enctype="multipart/form-data">
       {% csrf_token %}
-        <h2>Report a Lost or Found Item</h2>
+        <h2>Form</h2>
 
         <div class="form-group radio-group">
             <label>Item Status:</label>
@@ -38,6 +38,9 @@
         <div class="form-group">
             <label for="email">Your Contact Email:</label>
             <input type="email" id="email" name="email" required placeholder="your.email@vu.live.edu.au">
+            <div id="email-error" style="color: red; display: none;">
+              <p>Please use a @vu.edu.au email address.</p>
+            </div>
         </div>
 
         <div class="form-group">

@@ -43,3 +43,24 @@ document.getElementById('search-form').addEventListener('submit', function(event
             resultsContainer.innerHTML = '<p>Error fetching data. Please try again.</p>';
         });
 });
+
+
+document.getElementById('email').addEventListener('DOMContentLoaded', function(event) {
+    event.preventDefault();
+    const emailInput = document.getElementById('email');
+    const emailError = document.getElementById('email-error');
+    
+    // Add an event listener that triggers when the user leaves the input field
+    emailInput.addEventListener('blur', function() {
+        const email = emailInput.value;
+        const validDomain = /@live\.vu\.edu\.au$/.test(email);
+
+        if (email.trim() === '') {
+            emailError.style.display = 'none'; // Hide error if field is empty
+        } else if (!validDomain) {
+            emailError.style.display = 'block'; // Show the error message
+        } else {
+            emailError.style.display = 'none'; // Hide the error message
+        }
+    });
+});

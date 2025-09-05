@@ -17,11 +17,16 @@
             <h1>{% block title %}{% endblock %}</h1>
         </div>
         <nav class="menu">
-            <ul>
-                <li><a href="{% url 'index' %}">Home</a></li>
-                <li><a href="{% url 'lost' %}">Lost Items</a></li>
-                <li><a href="{% url 'found' %}">Found Items</a></li>
-                <li><a href="#">Contact</a></li>
+            <ul class="menu-list">
+                <li><a href="{% url 'index' %}">Form</a></li>
+                <li class="dropdown">
+                    <a href="#">Search</a>
+                    <ul class="dropdown-content">
+                        <li><a href="{% url 'lost' %}">Lost Items</a></li>
+                        <li><a href="{% url 'found' %}">Found Items</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -30,3 +35,4 @@
     <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
+
