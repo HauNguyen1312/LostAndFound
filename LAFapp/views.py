@@ -65,13 +65,13 @@ def save_data(request):
 
 
 def lost(request):
-	list_lost = Items.objects.filter(status = 'lost')
+	list_lost = Items.objects.filter(status = 'lost').filter(completed=False)
 
 	return render(request, 'LAF/lost_page.html', {'list_lost': list_lost})
 
 
 def found(request):
-	list_found = Items.objects.filter(status = 'found')
+	list_found = Items.objects.filter(status = 'found').filter(completed=False)
 	return render(request, 'LAF/found_page.html', {'list_found': list_found})
 
 class LostItemsAPIView(APIView):
